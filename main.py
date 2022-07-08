@@ -3,8 +3,8 @@ import requests
 
 url = 'https://v6.exchangerate-api.com/v6/ad4e6a5e322aa98c0575dc1e/latest/USD'
 
-call = requests.get(url)
-api_json = call.json()
+request = requests.get(url)
+api_json = request.json()
 currency_list = api_json["conversion_rates"]
 base_currency = api_json["conversion_rates"]['USD']
 
