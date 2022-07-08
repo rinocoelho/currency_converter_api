@@ -32,15 +32,18 @@ def convert_currency():
 
     for currency, rate in currency_list.items():
         print(f"CURRENCY: {currency} - RATE: {rate}")
-    
-        user_input = input("CHOOSE AMOUNT $ USD: ")
-        choose_currency = input("CHOOSE CURRENCY: ")
-        if choose_currency == currency:
-            x = user_input * rate
-            print(x)
 
-    #x = input("Dollar bebe")
+    try:
+        user_amount = int(input("CHOOSE AMOUNT $ USD: "))
+        user_currency_type = input("CHOOSE CURRENCY: ")
+        user_rate = currency_list[user_currency_type.upper()]
 
+        final_value = user_amount * user_rate
+
+        print(final_value)
+
+    except:
+        ValueError("ONLY INTEGERS")
 
 
 def check_rates():
@@ -48,4 +51,4 @@ def check_rates():
         print(f" ({currency}) RATE: {rate}")
 
 
-print(api_json["conversion_rates"])
+menu()
